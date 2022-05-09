@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/utilities.css">
+    <script src="https://kit.fontawesome.com/e05f21b32e.js" crossorigin="anonymous"></script>
+    <script src="../static/css/js/main.js" defer></script>
+    <title>Bilabonnement</title>
+</head>
+<body>
+<nav class="main-nav" id="main-nav">
+    <h1 class="logo">Bilabonnement</h1>
+
+    <ul>
+        <li>
+            <a href="#" class="active">Data Registration</a>
+        </li>
+
+        <li>
+            <a href="#">Damage &amp; Remediation</a>
+        </li>
+
+        <li>
+            <a href="#">Business Developers</a>
+        </li>
+    </ul>
+</nav>
+
+
+<!-- Section: Create Rental -->
+<section class="create-rental content show" id="create-rental">
+
+    <form action="/createRenting">
+        <div class="input-container">
+            <label for="customer-id">Customer ID</label>
+            <input type="number" min="0" name="customer_id" class="customer-id" id="customer-id"
+                   placeholder="Customer ID" required>
+
+            <label for="pick-up-location">Pick Up Location</label>
+            <input type="text" name="pick_up_location" class="pick-up-location" id="pick-up-location"
+                   placeholder="Pick Up Location" required>
+        </div>
+
+        <div class="input-container">
+            <label for="start-date">Start Date</label>
+            <input type="date" name="start_date" class="start-date" id="start-date" required>
+
+            <label for="end-date">End Date</label>
+            <input type="date" name="end_date" class="end-date" id="end-date" required>
+        </div>
+
+        <div class="input-container">
+            <label for="car-number">Car Number</label>
+            <input type="number" name="car_number" class="car-number" id="car-number" placeholder="Car Number" required>
+
+            <label for="chassis-number">Chassis Number</label>
+            <input type="number" name="chassis_number" class="chassis-number" id="chassis-number"
+                   placeholder="Chassis Number" required>
+        </div>
+
+
+        <button type="submit" class="btn submit-btn" id="create-rental-submit-btn">Apply</button>
+    </form>
+</section>
+
+
+<!-- Section: Damage And Remediation -->
+<section class="damage-and-remediation content" id="damage-and-remediation">
+    <form action="">
+        <div class="input-container">
+            <label for="start-of-rent">Start of Rent</label>
+            <input type="date" name="start_of_rent" class="start-of-rent" id="start-of-rent" required>
+
+            <label for="end-of-rent">End of Rent</label>
+            <input type="date" name="end_of_rent" class="end-of-rent" id="end-of-rent" required>
+
+            <label for="price-per-damage">Price Per Damage</label>
+            <input type="number" name="price_per_damage" class="price-per-damage" id="price-per-damage"
+                   placeholder="Price Per Damage" required>
+        </div>
+
+        <textarea name="damage_description" class="damage-description" id="damage-description"
+                  placeholder="Please describe your damage"></textarea>
+
+        <button type="submit" class="btn submit-btn" id="damage-and-remediation-submit-btn">Apply</button>
+    </form>
+</section>
+
+<section class="business-developers content">
+
+    <table id="car-status-table">
+        <thead>
+        <tr>
+            <th colspan="3">Car Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="car-status-table-row">
+            <td>Car</td>
+            <td>Rent Status</td>
+            <td>Price</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button class="btn add-row" id="add-row-btn"><i class="fas fa-plus"></i> Add Row</button>
+</section>
+</body>
+</html>
