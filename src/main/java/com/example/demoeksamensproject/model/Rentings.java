@@ -9,17 +9,6 @@ public class Rentings
 
     public Rentings() {}
 
-    public Rentings(String startDate,String pickUpPlace,String endDate)
-    {
-        this.startDate = startDate;
-        this.pickUpPlace = pickUpPlace;
-        this.endDate = endDate;
-    }
-
-    public int getRentingId() {
-        return rentingId;
-    }
-
     public String getStartDate() {
         return startDate;
     }
@@ -30,5 +19,16 @@ public class Rentings
 
     public String getEndDate() {
         return endDate;
+    }
+
+    public Rentings(String startDate, String pickUpPlace, String endDate)
+    {
+        this.startDate = startDate;
+        this.pickUpPlace = pickUpPlace;
+        this.endDate = endDate;
+    }
+
+    public int getRentingId() {
+        return rentingId;
     }
 }

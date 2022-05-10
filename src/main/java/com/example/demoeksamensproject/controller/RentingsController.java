@@ -1,6 +1,7 @@
 package com.example.demoeksamensproject.controller;
 
 import com.example.demoeksamensproject.model.Car;
+import com.example.demoeksamensproject.model.Customer;
 import com.example.demoeksamensproject.model.Rentings;
 import com.zaxxer.hikari.pool.HikariProxyResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,17 +27,20 @@ public class RentingsController
 
     List<Rentings> rentings = new ArrayList<>();
 
+    Rentings r = new Rentings();
+    Customer c = new Customer();
+    Car car = new Car();
 
     @PostMapping("/checkoutbill")
-    public void confirmRenting(Rentings r) {
+    public String confirmRenting(Rentings r) {
         String updateQuery = "INSERT INTO bilabonnement.renting" +
                             " (renting_id,customer_id,car_id,start_date, pick_up_place, end_date)" +
-                            " VALUES (null,null,null,'2022-02-10','lige her','2023-03-08')";  // todo getters til de rigtige parametre
-        // VALUES (r.getRentingId,r.getStartDate,r.getPickUpPlace,r.getEndDate)
-        template.update(updateQuery);
+                            " VALUES (?,?,?,?,?,?)";  // todo getters til de rigtige parametre
+        // (r.getRentingId(),r.getStartDate(),r.getPickUpPlace(),r.getEndDate())
+        template.update(updateQuery,r.getRentingId(),r.getStartDate(),r.getPickUpPlace(),r.getEndDate());
 
         System.out.println(template.update(updateQuery));
-
+        return "/checkoutbill";
     }
         @GetMapping("/rentingsucces")
             public String rentingSucces() {
