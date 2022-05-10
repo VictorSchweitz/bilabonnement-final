@@ -13,7 +13,60 @@
     <title>Checkout Bill</title>
 </head>
 <body>
-  <h1>Test</h1>
-  <a href="/">home</a>
+<nav class="main-nav" id="main-nav">
+    <h1 class="logo">Bilabonnement</h1>
+</nav>
+<form action="/confirmedorder" method="POST">
+    <div class="container bill-container">
+        <div class="container bill-container">
+            <header class="header">
+                <div class="checkmark-container">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3>Confirm Order</h3>
+            </header>
+
+            <!-- Confirmation Container -->
+            <div class="container confirmation-container">
+                <div>
+                    <div>
+                        <h2>Customer ID</h2>
+                        <span class="output customer-id-output" id="customer-id-output">Customer ID</span>
+                    </div>
+
+                    <div>
+                        <h2>Pick Up Location</h2>
+                        <span class="output pickup-location-output" id="pickup-location-output">Pick Up Location</span>
+                    </div>
+
+                    <div>
+                        <h2>Start Date</h2>
+                        <span class="output start-date-output" id="start-date-output">Start Date</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <h2>End Date</h2>
+                        <span class="output end-date-output" id="end-date-output">End Date</span>
+                    </div>
+
+                    <div>
+                        <h2>Car Number</h2>
+                        <span class="output car-number-output" id="car-number-output">Car Number</span>
+                    </div>
+
+                    <div>
+                        <h2>Chassis Number</h2>
+                        <span class="output chassis-number-output" id="chassis-number-output">Chassis Number</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <a href="confirmedorder.html" class="btn confirm-order-btn">Confirm Order</a>
+        </div>
+    </div>
+</form>
 </body>
 </html>

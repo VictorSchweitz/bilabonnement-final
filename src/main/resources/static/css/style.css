@@ -87,8 +87,13 @@ section.create-rental h1
 
 form
 {
-    position: absolute;
     top: 55%;
+}
+
+form,
+.bill-container
+{
+    position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--form-bg-color);
@@ -256,4 +261,61 @@ button.btn.add-row i
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+
+form.container.message-container
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+form.checkmark-container
+{
+    position: relative;
+    left: -50px;
+    top: -80px;
+    transform: translateX(-50%);
+}
+
+form.checkmark-container
+{
+    position: relative;
+    left: -50px;
+    top: -80px;
+    transform: translateX(-50%);
+}
+
+form.checkmark-container i
+{
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: var(--primary-bg-color);
+    height: 100px;
+    width: 100px;
+    border-radius: calc(var(--base-border-radius) * 5);
+    font-size: 40px;
+    box-shadow: var(--box-shadow);
+    text-shadow: var(--text-shadow);
+    color: var(--primary-text-color);
+}
+
+form.container.message-container h1
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--primary-bg-color);
 }

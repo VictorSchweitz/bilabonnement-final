@@ -1,4 +1,4 @@
-html
+:root
 {
     /* Colors */
     --primary-bg-color: #008080;
@@ -64,4 +64,9 @@ input
     opacity: 1;
     box-shadow: none;
     transform: scale(.98);
+}
+
+a
+{
+    text-decoration: none;
 }
