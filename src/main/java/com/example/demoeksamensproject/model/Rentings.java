@@ -1,15 +1,18 @@
-package model;
+package com.example.demoeksamensproject.model;
 
 public class Rentings
 {
     private int period;
     private String nameOfRenter;
 
+    public Rentings() {}
+
     public Rentings(int period, String nameOfRenter)
     {
         this.period = period;
         this.nameOfRenter = nameOfRenter;
     }
+
 
     public int getPeriod()
     {

@@ -1,4 +1,4 @@
-package model;
+package com.example.demoeksamensproject.model;
 
 public class Car
 {
@@ -9,6 +9,8 @@ public class Car
     private String equipmentLevel;
     private double steelPrice;
     private String carbonDioxideEmissions;
+
+    public Car() {}
 
     public Car(String licensePlateNumber, String chassisNumber, String brand, String model, String equipmentLevel, double steelPrice, String carbonDioxideEmissions)
     {
@@ -89,6 +91,21 @@ public class Car
     public void setCarbonDioxideEmissions(String carbonDioxideEmissions)
     {
         this.carbonDioxideEmissions = carbonDioxideEmissions;
+    }
+
+
+    @Override
+    public String toString()
+    {
+        return "Car{" +
+                "licensePlateNumber='" + licensePlateNumber + '\'' +
+                ", chassisNumber='" + chassisNumber + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", equipmentLevel='" + equipmentLevel + '\'' +
+                ", steelPrice=" + steelPrice +
+                ", carbonDioxideEmissions='" + carbonDioxideEmissions + '\'' +
+                '}';
     }
 }
 

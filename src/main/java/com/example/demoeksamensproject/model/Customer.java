@@ -1,4 +1,4 @@
-package model;
+package com.example.demoeksamensproject.model;
 
 public class Customer
 {
@@ -9,6 +9,7 @@ public class Customer
     private String address;
     private int dateOfBirth;
 
+    public Customer() {}
 
     public void CarConstructor(String name, int age, int phoneNumber, String address, int dateOfBirth)
     {

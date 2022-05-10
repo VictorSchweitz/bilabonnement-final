@@ -1,7 +1,7 @@
-package controller;
+package com.example.demoeksamensproject.controller;
 
 import org.springframework.stereotype.Controller;
-import repository.DamageAndRemediationRepo;
+import com.example.demoeksamensproject.repository.DamageAndRemediationRepo;
 
 @Controller
 public class DamageAndRemediationController

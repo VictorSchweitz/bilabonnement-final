@@ -1,7 +1,7 @@
-package controller;
+package com.example.demoeksamensproject.controller;
 
 import org.springframework.stereotype.Controller;
-import repository.CarRepo;
+import com.example.demoeksamensproject.repository.CarRepo;
 
 @Controller
 public class CarController

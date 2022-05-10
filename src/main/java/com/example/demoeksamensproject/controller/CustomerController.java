@@ -1,7 +1,7 @@
-package controller;
+package com.example.demoeksamensproject.controller;
 
 import org.springframework.stereotype.Controller;
-import repository.CustomerRepo;
+import com.example.demoeksamensproject.repository.CustomerRepo;
 
 @Controller
 public class CustomerController
