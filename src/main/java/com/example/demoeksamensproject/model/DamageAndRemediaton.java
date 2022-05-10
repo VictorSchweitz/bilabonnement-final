@@ -1,4 +1,4 @@
-package model;
+package com.example.demoeksamensproject.model;
 
 public class DamageAndRemediaton
 {
@@ -6,6 +6,8 @@ public class DamageAndRemediaton
     private String mistakes;
     private String missings;
     private double priceOfDamage;
+
+    public DamageAndRemediaton() {}
 
     public DamageAndRemediaton(String typeOfDamage, String mistakes, String missings, double priceOfDamage)
     {
