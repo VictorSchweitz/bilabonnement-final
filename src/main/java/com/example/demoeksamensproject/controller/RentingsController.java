@@ -27,7 +27,12 @@ public class RentingsController
 
         return "redirect:/";
 
-        // return template.query(selectCarsFromDatabase, carRowMapper);
     }
 
+
+    @GetMapping("/checkoutbill")
+    public String checkoutBill()
+    {
+        return "redirect:/checkoutbill";
+    }
 }
