@@ -22,12 +22,13 @@ public class CarController
 
    public String createCar() {
 
-      String selectCarsFromDatabase = "";  //todo - query med data fra createCar form..
+      String selectCarsFromDatabase = "";  //todo - query med data fra createCar form som add'er til
+      // car table..
 
       RowMapper<Car> carRowMapper = new BeanPropertyRowMapper<>(Car.class);
 
       System.out.println(template.query(selectCarsFromDatabase, carRowMapper));
 
-      return "redirect:/carList";   // todo - redirect til en succes page eller en car liste page
+      return "redirect:/carList";   // todo - en succes page eller en car liste page?
    }
 }
