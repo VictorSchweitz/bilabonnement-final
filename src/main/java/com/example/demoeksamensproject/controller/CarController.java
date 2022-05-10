@@ -9,15 +9,30 @@ import org.springframework.stereotype.Controller;
 import com.example.demoeksamensproject.repository.CarRepo;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+
 @Controller
-public class CarController
-{
+public class CarController {
+
+
    @Autowired
 
    JdbcTemplate template;
 
-   CarRepo carRepo = new CarRepo();
+   ArrayList<Car> cars = new ArrayList<>();
+   @Autowired
+   CarRepo carRepo;
 
+   @PostMapping("/car_list")
+   public String fetchAllCars() {
+      String selectCarsFromDatabase = "SELECT * FROM bilabonnement.car";
+      RowMapper<Car> carRowMapper = new BeanPropertyRowMapper<>(Car.class);
+      System.out.println(template.query(selectCarsFromDatabase, carRowMapper));
+
+      return "redirect:/carList";
+
+      // return template.query(selectCarsFromDatabase, carRowMapper);
+/*
    @PostMapping("/createCar")
 
    public String createCar() {
@@ -30,5 +45,6 @@ public class CarController
       System.out.println(template.query(selectCarsFromDatabase, carRowMapper));
 
       return "redirect:/carList";   // todo - en succes page eller en car liste page?
+   }*/
    }
 }

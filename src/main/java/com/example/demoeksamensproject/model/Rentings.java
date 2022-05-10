@@ -2,35 +2,33 @@ package com.example.demoeksamensproject.model;
 
 public class Rentings
 {
-    private int period;
-    private String nameOfRenter;
+    private int rentingId;
+    private String startDate;
+    private String pickUpPlace;
+    private String endDate;
 
     public Rentings() {}
 
-    public Rentings(int period, String nameOfRenter)
+    public Rentings(String startDate,String pickUpPlace,String endDate)
     {
-        this.period = period;
-        this.nameOfRenter = nameOfRenter;
+        this.startDate = startDate;
+        this.pickUpPlace = pickUpPlace;
+        this.endDate = endDate;
     }
 
-
-    public int getPeriod()
-    {
-        return period;
+    public int getRentingId() {
+        return rentingId;
     }
 
-    public void setPeriod(int period)
-    {
-        this.period = period;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public String getNameOfRenter()
-    {
-        return nameOfRenter;
+    public String getPickUpPlace() {
+        return pickUpPlace;
     }
 
-    public void setNameOfRenter(String nameOfRenter)
-    {
-        this.nameOfRenter = nameOfRenter;
+    public String getEndDate() {
+        return endDate;
     }
 }
