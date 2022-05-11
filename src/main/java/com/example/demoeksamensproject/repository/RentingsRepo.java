@@ -30,10 +30,12 @@ public class RentingsRepo {
         System.out.println(template.query(fetchAllQuery, rentingsRowMapper));
         return template.query(fetchAllQuery,rentingsRowMapper);
     }
-    public Customer searchRenting(Customer customer_id){
+    public Rentings searchRenting(Rentings customer_id){
         String searchQuery = "SELECT * FROM bilabonnement.renting WHERE customer_id = ?;";
         RowMapper<Rentings> rentingsRowMapper = new BeanPropertyRowMapper<>(Rentings.class);
         System.out.println(template.queryForObject(searchQuery,rentingsRowMapper, customer_id));
+        Rentings r = template.queryForObject(searchQuery,rentingsRowMapper, customer_id);
+        return r;
     }
 
 
