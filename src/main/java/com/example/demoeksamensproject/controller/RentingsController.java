@@ -45,7 +45,7 @@ public class RentingsController
         return "/checkoutbill";
     }
 
-    @PostMapping("/renting_list")
+    @PostMapping("/renting_list/{customer_id}")
     public List<Rentings> fetchAllRentings()
     {
         String fetchRentings = "SELECT * FROM bilabonnement.renting;";

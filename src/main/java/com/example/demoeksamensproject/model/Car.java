@@ -2,6 +2,7 @@ package com.example.demoeksamensproject.model;
 
 public class Car
 {
+    private int carId;
     private String licensePlateNumber;
     private String chassisNumber;
     private String brand;
@@ -12,8 +13,9 @@ public class Car
 
     public Car() {}
 
-    public Car(String licensePlateNumber, String chassisNumber, String brand, String model, String equipmentLevel, double steelPrice, String carbonDioxideEmissions)
+    public Car(int carId, String licensePlateNumber, String chassisNumber, String brand, String model, String equipmentLevel, double steelPrice, String carbonDioxideEmissions)
     {
+        this.carId = carId;
         this.licensePlateNumber = licensePlateNumber;
         this.chassisNumber = chassisNumber;
         this.brand = brand;

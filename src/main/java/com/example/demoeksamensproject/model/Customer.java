@@ -2,7 +2,9 @@ package com.example.demoeksamensproject.model;
 
 public class Customer
 {
-    private String name;
+    private int customerId;
+    private String firstName;
+    private String lastName;
     private int age;
     private String email;
     private int phoneNumber;
@@ -11,9 +13,12 @@ public class Customer
 
     public Customer() {}
 
-    public void CarConstructor(String name, int age, int phoneNumber, String address, int dateOfBirth)
+    public void carConstructor(int customerId,String firstName,String lastName,
+           int age, int phoneNumber,String email, String address, int dateOfBirth)
     {
-        this.name = name;
+        this.customerId = customerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -21,14 +26,16 @@ public class Customer
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getName()
-    {
-        return name;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setName(String name)
-    {
-        this.name = name;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public int getAge()

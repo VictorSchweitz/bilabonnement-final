@@ -26,39 +26,41 @@
                 <h3>Confirm Order</h3>
             </header>
 
-            <!-- Confirmation Container -->
+            <!-- Confirmation Container  <span th:text="${person.id}"/>
+  <span th:text="${person.first_name}"/>
+  <span th:text="${person.last_name}"/>-->
             <div class="container confirmation-container">
                 <div>
                     <div>
                         <h2>Customer ID</h2>
-                        <span class="output customer-id-output" id="customer-id-output">Customer ID</span>
+                        <span th:text="${renting.customer_id}" class="output customer-id-output" id="customer-id-output">Customer ID</span>
                     </div>
 
                     <div>
                         <h2>Pick Up Location</h2>
-                        <span class="output pickup-location-output" id="pickup-location-output">Pick Up Location</span>
+                        <span th:text="${renting.pick_up_place}" class="output pickup-location-output" id="pickup-location-output">Pick Up Location</span>
                     </div>
 
                     <div>
                         <h2>Start Date</h2>
-                        <span class="output start-date-output" id="start-date-output">Start Date</span>
+                        <span th:text="${renting.start_date}" class="output start-date-output" id="start-date-output">Start Date</span>
                     </div>
                 </div>
 
                 <div>
                     <div>
                         <h2>End Date</h2>
-                        <span class="output end-date-output" id="end-date-output">End Date</span>
+                        <span th:text="${renting.end_date}" class="output end-date-output" id="end-date-output">End Date</span>
                     </div>
 
                     <div>
                         <h2>Car Number</h2>
-                        <span class="output car-number-output" id="car-number-output">Car Number</span>
+                        <span th:text="${renting.car_id}" class="output car-number-output" id="car-number-output">Car Number</span>
                     </div>
 
                     <div>
                         <h2>Chassis Number</h2>
-                        <span class="output chassis-number-output" id="chassis-number-output">Chassis Number</span>
+                        <span th:text="${renting.chassis_number}" class="output chassis-number-output" id="chassis-number-output">Chassis Number</span>
                     </div>
                 </div>
             </div>
