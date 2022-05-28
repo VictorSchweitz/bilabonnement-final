@@ -3,6 +3,8 @@ package com.example.demoeksamensproject.controller;
 import com.example.demoeksamensproject.model.Car;
 import com.example.demoeksamensproject.model.Customer;
 import com.example.demoeksamensproject.model.Rentings;
+import com.example.demoeksamensproject.repository.RentingsRepo;
+import com.example.demoeksamensproject.service.RentingService;
 import com.zaxxer.hikari.pool.HikariProxyResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -11,7 +13,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.sql.ResultSet;
@@ -23,7 +28,7 @@ import java.util.List;
 public class RentingsController
 {
     @Autowired
-    JdbcTemplate template;
+    RentingService rentingService;
 
     List<Rentings> rentings = new ArrayList<>();
 
@@ -32,29 +37,20 @@ public class RentingsController
     Car car = new Car();
 
     @PostMapping("/checkoutbill")
-    public String confirmRenting(Rentings r)
+    public String confirmRenting(@ModelAttribute Rentings renting, ModelMap model)
     {
-        /*String updateQuery = "INSERT INTO bilabonnement.renting" +
-                " (renting_id,customer_id,car_id,start_date, pick_up_place, end_date)" +
-                " VALUES (?,?,?,?,?,?)";
-        todo getters til de rigtige parametre
-        // (r.getRentingId(),r.getStartDate(),r.getPickUpPlace(),r.getEndDate())
-        template.update(updateQuery, r.getRentingId(), r.getStartDate(), r.getPickUpPlace(), r.getEndDate());
-
-        System.out.println(template.update(updateQuery));*/
-        return "/checkoutbill";
+        rentingService.confirmOrder(renting);
+        model.addAttribute("renting", renting);
+        return "redirect:/checkoutbill";
     }
 
-    @PostMapping("/renting_list/{customer_id}")
-    public List<Rentings> fetchAllRentings()
-    {
-        String fetchRentings = "SELECT * FROM bilabonnement.renting;";
-        RowMapper<Rentings> rentingRowMapper = new BeanPropertyRowMapper<>(Rentings.class);
-
-        System.out.println(template.update(fetchRentings, rentingRowMapper));
-
-        return template.query(fetchRentings, rentingRowMapper);
+    @GetMapping("/checkoutbill")
+    public String checkoutBill(){
+        return "checkoutbill";
     }
+
+
+
 
     @PostMapping("/confirmedorder")
     public String confirmedOrder()

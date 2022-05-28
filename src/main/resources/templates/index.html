@@ -22,7 +22,7 @@
         </li>
 
         <li>
-            <a href="#">Damage &amp; Remediation</a>
+            <a href="#">Damage &amp;amp; Remediation</a>
         </li>
 
         <li>
@@ -32,10 +32,20 @@
 </nav>
 
 
+<!--
+    What the program should do when working as my use case describes:
+
+    1. Receive data from the form in the first view
+
+    2. Send and present the data to another view that the user is being redirected to when the button in the first form
+       is being pressed
+
+    3. Send the data from the view on the second page to the database
+-->
+
 <!-- Section: Create Rental -->
 <section class="create-rental content show" id="create-rental">
-
-    <form action="/checkoutbill" method="POST">
+    <form th:action="@{/checkoutbill}" method="POST" modelAttribute="rentings">
         <div class="input-container">
             <label for="customer-id">Customer ID</label>
             <input type="number" min="0" name="customer_id" class="customer-id" id="customer-id"
@@ -63,7 +73,8 @@
                    placeholder="Chassis Number" required>
         </div>
 
-
+        <!-- vvv The button that does not work vvv -->
+        <!-- When it works, it should redirect to the checkoutbill.html page with the data typed into the form -->
         <button type="submit" class="btn submit-btn" id="create-rental-submit-btn">Apply</button>
     </form>
 </section>
@@ -96,7 +107,7 @@
     <table id="car-status-table">
         <thead>
         <tr>
-            <th colspan="3">Car Status</th>
+            <th colspan="4">Car Status</th>
         </tr>
         </thead>
         <tbody>
@@ -104,6 +115,11 @@
             <td>Car</td>
             <td>Rent Status</td>
             <td>Price</td>
+            <!--<td>
+                <button class="btn remove-row" id="remove-row-btn">
+                    <i class="fas fa-minus"></i> Remove Row
+                </button>
+            </td>-->
         </tr>
         </tbody>
     </table>

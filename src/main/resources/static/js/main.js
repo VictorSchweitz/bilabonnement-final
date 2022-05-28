@@ -1,3 +1,9 @@
+// Preventing page from rebuilding on click
+window.addEventListener('click', (e) =>
+{
+    e.preventDefault()
+})
+
 // Page Transitioning
 const contents = document.querySelectorAll('.content')
 const navLinks = document.querySelectorAll('nav ul li a')
@@ -29,11 +35,18 @@ function hideAllItems()
 // Getting the table element by its ID
 const carStatusTable = document.getElementById('car-status-table')
 
-// Getting the add row button by its ID
+// Getting the add and remove row button by their respective ID
 const addRowBtn = document.getElementById('add-row-btn')
+const removeRowBtns = document.querySelectorAll('.remove-row')
+
+removeRowBtns.forEach((removeRowBtn) =>
+{
+    removeRowBtn.addEventListener('click', removeRowFromTable)
+})
 
 // Setting the new row to be placed at the bottom of the table
-let row = carStatusTable.insertRow(-1)
+let addRow = carStatusTable.insertRow(-1)
+let removeRow = carStatusTable.deleteRow(-1)
 
 // Getting the <td></td> with and ID of car by its ID
 let car = document.getElementById('car')
@@ -44,10 +57,11 @@ let rentStatus = document.getElementById('rent-status')
 // Getting the <td></td> with and ID of price by its ID
 let price = document.getElementById('price')
 
-// Adding a click event to the add row button
+// Adding a click event to the add and remove row button
 addRowBtn.addEventListener('click', addRowToTable)
 
-// Creaing the function for adding a row to the bottom of the table
+
+// Creating the function for adding a row to the bottom of the table
 function addRowToTable()
 {
     // Just adding some placeholder values to the input fields (ultimately, this data should come from the database)
@@ -60,7 +74,7 @@ function addRowToTable()
 
     // Where it says `<td>${car}</td>`, I'm inserting whatever I've assigned the car variable to be (in this case 'Ferrari'). The same goes for rentStatus and price.
     let tableRowTemplate = `
-        <tr>
+        <tr class="row">
             <td>
                ${car}
             </td>
@@ -69,6 +83,10 @@ function addRowToTable()
             </td>
             <td>
                ${price} 
+            </td>
+            
+            <td>
+               <button class="btn remove-row">Remove</button>
             </td>
         </tr>
     `
@@ -85,7 +103,19 @@ function addRowToTable()
 
     carStatusTable.innerHTML += tableRowTemplate
 
+
+
 }
 
+// Creating the function for removing a row from the bottom of the table
+function removeRowFromTable(e)
+{
+    if (!e.target.classList.contains('.btn remove-row'))
+    {
+        return
+    }
 
+    const btn = e.target
+    btn.closest('tr').remove()
 
+}

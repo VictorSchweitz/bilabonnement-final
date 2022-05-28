@@ -11,12 +11,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class RentingsRepo {
+public class RentingsRepo
+{
     @Autowired
     JdbcTemplate template;
 
-
-    public void confirmOrder(Rentings r) {
+    public void confirmOrder(Rentings r)
+    {
         String updateQuery = "INSERT INTO bilabonnement.renting" +
                 " (renting_id,customer_id,car_id,start_date, pick_up_place, end_date)" +
                 " VALUES (?,?,?,?,?,?)";
@@ -24,23 +25,24 @@ public class RentingsRepo {
         System.out.println(template.update(updateQuery, r.getRentingId()
                 , r.getStartDate(), r.getPickUpPlace(), r.getEndDate()));
     }
-    public List<Rentings> fetchAllRentings(){
+
+
+    public List<Rentings> fetchAllRentings()
+    {
         String fetchAllQuery = "SELECT * FROM bilabonnement.renting;";
         RowMapper<Rentings> rentingsRowMapper = new BeanPropertyRowMapper<>(Rentings.class);
         System.out.println(template.query(fetchAllQuery, rentingsRowMapper));
-        return template.query(fetchAllQuery,rentingsRowMapper);
+        return template.query(fetchAllQuery, rentingsRowMapper);
     }
-    public Rentings searchRenting(Rentings customer_id){
+
+    public Rentings searchRenting(Rentings customer_id)
+    {
         String searchQuery = "SELECT * FROM bilabonnement.renting WHERE customer_id = ?;";
         RowMapper<Rentings> rentingsRowMapper = new BeanPropertyRowMapper<>(Rentings.class);
-        System.out.println(template.queryForObject(searchQuery,rentingsRowMapper, customer_id));
-        Rentings r = template.queryForObject(searchQuery,rentingsRowMapper, customer_id);
+        System.out.println(template.queryForObject(searchQuery, rentingsRowMapper, customer_id));
+        Rentings r = template.queryForObject(searchQuery, rentingsRowMapper, customer_id);
         return r;
     }
-
-
-
-
 
 
 }
