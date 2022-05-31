@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="en">
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,7 +11,6 @@
     <link rel="stylesheet" th:href="@{/css/global.css}">
     <link rel="stylesheet" th:href="@{/css/utilities.css}">
     <script src="https://kit.fontawesome.com/e05f21b32e.js" crossorigin="anonymous"></script>
-    <script th:src="@{/js/main.js}" defer></script>
     <title>Bilabonnement</title>
 </head>
 <body>
@@ -32,49 +33,32 @@
 </nav>
 
 
-<!--
-    What the program should do when working as my use case describes:
-
-    1. Receive data from the form in the first view
-
-    2. Send and present the data to another view that the user is being redirected to when the button in the first form
-       is being pressed
-
-    3. Send the data from the view on the second page to the database
--->
-
 <!-- Section: Create Rental -->
 <section class="create-rental content show" id="create-rental">
-    <form th:action="@{/checkoutbill}" method="POST" modelAttribute="rentings">
+    <form action="/checkoutbill" method="POST">
         <div class="input-container">
-            <label for="customer-id">Customer ID</label>
-            <input type="number" min="0" name="customer_id" class="customer-id" id="customer-id"
-                   placeholder="Customer ID" required>
-
             <label for="pick-up-location">Pick Up Location</label>
-            <input type="text" name="pick_up_location" class="pick-up-location" id="pick-up-location"
+            <input type="text" name="pickupLocation" class="pick-up-location" id="pick-up-location"
                    placeholder="Pick Up Location" required>
         </div>
 
         <div class="input-container">
             <label for="start-date">Start Date</label>
-            <input type="date" name="start_date" class="start-date" id="start-date" required>
+            <input type="text" name="startDate" class="start-date" id="start-date" required>
 
             <label for="end-date">End Date</label>
-            <input type="date" name="end_date" class="end-date" id="end-date" required>
+            <input type="text" name="endDate" class="end-date" id="end-date" required>
         </div>
 
         <div class="input-container">
             <label for="car-number">Car Number</label>
-            <input type="number" name="car_number" class="car-number" id="car-number" placeholder="Car Number" required>
+            <input type="number" name="carNumber" class="car-number" id="car-number" placeholder="Car Number" required>
 
             <label for="chassis-number">Chassis Number</label>
-            <input type="text" name="chassis_number" class="chassis-number" id="chassis-number"
+            <input type="text" name="chassisNumber" class="chassis-number" id="chassis-number"
                    placeholder="Chassis Number" required>
         </div>
 
-        <!-- vvv The button that does not work vvv -->
-        <!-- When it works, it should redirect to the checkoutbill.html page with the data typed into the form -->
         <button type="submit" class="btn submit-btn" id="create-rental-submit-btn">Apply</button>
     </form>
 </section>

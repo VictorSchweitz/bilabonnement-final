@@ -18,7 +18,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,30 +35,38 @@ public class RentingsController
 
     List<Rentings> rentings = new ArrayList<>();
 
-    Rentings r = new Rentings();
+    Rentings r;
     Customer c = new Customer();
     Car car = new Car();
 
+
+    // Here, I use RedirectAttributes, since I'm adding data to redirect
     @PostMapping("/checkoutbill")
-    public String confirmRenting(@ModelAttribute Rentings renting, ModelMap model)
+    public String confirmRenting(@ModelAttribute Rentings renting, RedirectAttributes redirectAttributes)
     {
-        rentingService.confirmOrder(renting);
-        model.addAttribute("renting", renting);
+        r = renting;
+        redirectAttributes.addFlashAttribute("renting", renting);
         return "redirect:/checkoutbill";
     }
 
     @GetMapping("/checkoutbill")
-    public String checkoutBill(){
+    // The parameters send the value to the redirect model
+    public String checkoutBill(@ModelAttribute Rentings renting, Model model)
+    {
+        renting = r;
+        // Getting the redirect value
+        model.addAttribute("renting", renting);
+        rentingService.confirmOrder(renting);
         return "checkoutbill";
     }
 
-
-
-
-    @PostMapping("/confirmedorder")
-    public String confirmedOrder()
+    @GetMapping("/showorders")
+    public String showOrders(Model model)
     {
-        return "/confirmedorder";
+        model.addAttribute("orders", rentingService.allRentings());
+        return "showorders";
     }
+
+
 }
 

@@ -18,31 +18,24 @@ public class RentingsRepo
 
     public void confirmOrder(Rentings r)
     {
-        String updateQuery = "INSERT INTO bilabonnement.renting" +
-                " (renting_id,customer_id,car_id,start_date, pick_up_place, end_date)" +
-                " VALUES (?,?,?,?,?,?)";
-        template.update(updateQuery, r.getRentingId(), r.getStartDate(), r.getPickUpPlace(), r.getEndDate());
-        System.out.println(template.update(updateQuery, r.getRentingId()
-                , r.getStartDate(), r.getPickUpPlace(), r.getEndDate()));
+        // The name after "INSERT INTO" has to match the name of the table in the database
+        String updateQuery = "INSERT INTO rentings"
+                +
+                " (pick_up_location, start_date, end_date, car_number, chassis_number)"
+                +
+                " VALUES (?, ?, ?, ?, ?)";
+
+        // The parameters have to match the getters in the query
+        template.update(updateQuery, r.getPickupLocation(),
+                r.getStartDate(),  r.getEndDate(), r.getCarNumber(), r.getChassisNumber());
     }
 
 
     public List<Rentings> fetchAllRentings()
     {
-        String fetchAllQuery = "SELECT * FROM bilabonnement.renting;";
+        String fetchAllQuery = "SELECT * FROM rentings;";
         RowMapper<Rentings> rentingsRowMapper = new BeanPropertyRowMapper<>(Rentings.class);
         System.out.println(template.query(fetchAllQuery, rentingsRowMapper));
         return template.query(fetchAllQuery, rentingsRowMapper);
     }
-
-    public Rentings searchRenting(Rentings customer_id)
-    {
-        String searchQuery = "SELECT * FROM bilabonnement.renting WHERE customer_id = ?;";
-        RowMapper<Rentings> rentingsRowMapper = new BeanPropertyRowMapper<>(Rentings.class);
-        System.out.println(template.queryForObject(searchQuery, rentingsRowMapper, customer_id));
-        Rentings r = template.queryForObject(searchQuery, rentingsRowMapper, customer_id);
-        return r;
-    }
-
-
 }
