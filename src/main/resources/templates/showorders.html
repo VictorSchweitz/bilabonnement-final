@@ -1,0 +1,56 @@
+<!doctype html>
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{./css/style.css}">
+    <link rel="stylesheet" th:href="@{./css/global.css}">
+    <link rel="stylesheet" th:href="@{./css/utilities.css}">
+    <script src="https://kit.fontawesome.com/e05f21b32e.js" crossorigin="anonymous"></script>
+    <title>Bilabonnement</title>
+</head>
+<body>
+
+<div class="orders-container">
+    <h1>All Orders</h1>
+
+    <div>
+        <label for="pick-up-location">Pick Up Location:</label>
+        <div th:each="order: ${orders}">
+            <span th:text="${order.getPickupLocation()}" class="pick-up-location" id="pick-up-location"></span>
+        </div>
+
+        <label for="start-date">Start Date:</label>
+        <div th:each="order: ${orders}">
+            <span th:text="${order.getStartDate()}" class="start-date" id="start-date"></span>
+        </div>
+    </div>
+
+    <div>
+        <label for="end-date">End Date:</label>
+        <div th:each="order: ${orders}">
+            <span th:text="${order.getEndDate()}" class="end-date" id="end-date"></span>
+        </div>
+
+        <label for="car-number">Car Number:</label>
+        <div th:each="order: ${orders}">
+            <span th:text="${order.getCarNumber()}" class="car-number" id="car-number"></span>
+        </div>
+    </div>
+
+    <div>
+        <label for="chassis-number">Chassis Number:</label>
+        <div th:each="order: ${orders}">
+            <span th:text="${order.getChassisNumber()}" class="chassis-number" id="chassis-number"></span>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
