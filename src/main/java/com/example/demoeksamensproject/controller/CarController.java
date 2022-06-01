@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class CarController
 {
 
-
     @Autowired
     JdbcTemplate template;
 

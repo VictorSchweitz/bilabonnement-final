@@ -33,7 +33,8 @@ public class RentingsController
     @Autowired
     RentingService rentingService;
 
-    List<Rentings> rentings = new ArrayList<>();
+    // Making a new for all the rentings
+    List<Rentings> rentings = new ArrayList<Rentings>();
 
     Rentings r;
     Customer c = new Customer();
@@ -44,7 +45,14 @@ public class RentingsController
     @PostMapping("/checkoutbill")
     public String confirmRenting(@ModelAttribute Rentings renting, RedirectAttributes redirectAttributes)
     {
+        // Here, I'm setting 'r', the rentings variable, to be equal the renting being passed in to the list
         r = renting;
+
+        /*
+            Here, addFlashAttribute is used to store the attributes passed in as a parameter
+            The flashmap is being removed, once the redirect is returned on the line underneath.
+        */
+
         redirectAttributes.addFlashAttribute("renting", renting);
         return "redirect:/checkoutbill";
     }
@@ -53,10 +61,18 @@ public class RentingsController
     // The parameters send the value to the redirect model
     public String checkoutBill(@ModelAttribute Rentings renting, Model model)
     {
-        renting = r;
+        r = renting;
+
         // Getting the redirect value
         model.addAttribute("renting", renting);
+
+        /*
+            Adding the confirmed order to the renting via the confirmOrder method
+            in the RentingService class
+         */
         rentingService.confirmOrder(renting);
+
+        // Lastly returning the checkoutbill view
         return "checkoutbill";
     }
 

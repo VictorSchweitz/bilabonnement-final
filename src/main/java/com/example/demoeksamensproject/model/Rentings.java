@@ -5,11 +5,7 @@ import java.util.Date;
 public class Rentings
 {
 
-    /**
-     * Jeg har opdateretet attributes, constructor, getters, setters og toString
-     * Du kan sammenligne med din
-     * Hvis du har brug for flere attribute, du kan tilføje eller fjerne en hvis det er ikke har brug for
-     */
+    // Defining my attributes
     private int rentingId;
     private String pickupLocation;
     private String startDate;
@@ -17,10 +13,16 @@ public class Rentings
     private int carNumber;
     private int chassisNumber;
 
-    public Rentings()
-    {
-    }
+    /*
+       Creating an empty no arguments constructor to make use of
+       in BeanRowMapper in the RentingsRepo class
+    */
+    public Rentings() {}
 
+    /*
+        Then making another Rentings object, but this time filling it with the fields defined up above,
+        in order to add getters and setters to them afterwards
+     */
     public Rentings(int rentingId, String pickupLocation, String startDate, String endDate, int carNumber, int chassisNumber)
     {
         this.rentingId = rentingId;
@@ -32,6 +34,7 @@ public class Rentings
     }
 
 
+    // Adding getters and setters
     public int getRentingId()
     {
         return rentingId;
@@ -92,6 +95,7 @@ public class Rentings
         this.chassisNumber = chassisNumber;
     }
 
+    // Overriding my getters and setters with this toString method
     @Override
     public String toString()
     {

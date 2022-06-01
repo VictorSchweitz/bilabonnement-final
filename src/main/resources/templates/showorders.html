@@ -15,6 +15,15 @@
 </head>
 <body>
 
+
+<!--
+   This form returns the data from the database by returning the data through
+   the Thymeleaf variables passed into the th:value attribute in each <input /> element.
+
+   It does so by looping over each order by using the th:each attribute in the container element
+   (the <div></div> element) and then having a th:text Thymeleaf attribute in the child element
+   (the <span></span> element).
+-->
 <div class="orders-container">
     <h1>All Orders</h1>
 

@@ -34,6 +34,13 @@
 
 
 <!-- Section: Create Rental -->
+
+<!--
+    This section contains the registration form where a new car is being registered.
+    It's using the proper input types for each input
+    (do note that the date input is not using the date input type, since it's being treated
+     as a String by Java, why I chose to use the default input type of text instead).
+-->
 <section class="create-rental content show" id="create-rental">
     <form action="/checkoutbill" method="POST">
         <div class="input-container">
@@ -65,7 +72,7 @@
 
 
 <!-- Section: Damage And Remediation -->
-<section class="damage-and-remediation content" id="damage-and-remediation">
+<!--<section class="damage-and-remediation content" id="damage-and-remediation">
     <form action="/" method="GET">
         <div class="input-container">
             <label for="start-of-rent">Start of Rent</label>
@@ -84,9 +91,9 @@
 
         <button type="submit" class="btn submit-btn" id="damage-and-remediation-submit-btn">Apply</button>
     </form>
-</section>
+</section>-->
 
-<section class="business-developers content">
+<!--<section class="business-developers content">
 
     <table id="car-status-table">
         <thead>
@@ -99,11 +106,11 @@
             <td>Car</td>
             <td>Rent Status</td>
             <td>Price</td>
-            <!--<td>
+            &lt;!&ndash;<td>
                 <button class="btn remove-row" id="remove-row-btn">
                     <i class="fas fa-minus"></i> Remove Row
                 </button>
-            </td>-->
+            </td>&ndash;&gt;
         </tr>
         </tbody>
     </table>
@@ -111,6 +118,6 @@
     <button class="btn add-row" id="add-row-btn">
         <i class="fas fa-plus"></i> Add Row
     </button>
-</section>
+</section>-->
 </body>
 </html>

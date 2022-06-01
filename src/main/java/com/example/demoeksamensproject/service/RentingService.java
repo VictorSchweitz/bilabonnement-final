@@ -13,12 +13,20 @@ public class RentingService
     @Autowired
     RentingsRepo rentingsRepo;
 
-    // This method has to match the one in RentingsRepo as far as naming goes
+    /*
+        This method has to match the one in RentingsRepo as far as naming goes
+        This method takes care of taking the order and pass it on to the actual confirmOrder method
+        in the confirmOrder method in the RentingsRepo class.
+     */
     public void confirmOrder(Rentings renting)
     {
         rentingsRepo.confirmOrder(renting);
     }
 
+    /*
+        Returning the list of all rentings from the database by callin
+
+     */
     public List<Rentings> allRentings()
     {
         return rentingsRepo.fetchAllRentings();
