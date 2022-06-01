@@ -2,6 +2,7 @@ package com.example.demoeksamensproject.model;
 
 public class Car
 {
+    // Defining my attributes
     private int carId;
     private String licensePlateNumber;
     private String chassisNumber;
@@ -11,8 +12,16 @@ public class Car
     private double steelPrice;
     private String carbonDioxideEmissions;
 
+    /*
+       Creating an empty no arguments constructor to make use of
+       in BeanRowMapper in the RentingsRepo class
+    */
     public Car() {}
 
+    /*
+        Then making another Car object, but this time filling it with the attributes defined up above,
+        in order to add getters and setters to them afterwards
+     */
     public Car(int carId, String licensePlateNumber, String chassisNumber, String brand, String model, String equipmentLevel, double steelPrice, String carbonDioxideEmissions)
     {
         this.carId = carId;
@@ -25,6 +34,7 @@ public class Car
         this.carbonDioxideEmissions = carbonDioxideEmissions;
     }
 
+    // Adding getters and setters
     public String getLicensePlateNumber()
     {
         return licensePlateNumber;
@@ -95,7 +105,7 @@ public class Car
         this.carbonDioxideEmissions = carbonDioxideEmissions;
     }
 
-
+    // Overriding my getters and setters with this toString method
     @Override
     public String toString()
     {
